@@ -43,7 +43,7 @@
     methods: {
       onChange () {
         this.isShowGallery = false
-      }
+      },
     }
   }
 </script>

@@ -3,7 +3,7 @@
     <div class="city-header-top">
       <base-icon
         class="city-back"
-        iconText="icon-fanhui"
+        iconText="icon-4"
         @click.native="$router.go(-1)"
       >
       </base-icon>
