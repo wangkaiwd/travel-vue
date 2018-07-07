@@ -4,7 +4,7 @@ import router from './router'
 import store from './store/index'
 import fastClick from 'fastclick'
 // 移动端300毫秒的延迟
-fastClick.attach(document.body);
+fastClick.attach(document.body)
 
 import flexible from 'amfe-flexible'
 
@@ -12,21 +12,26 @@ import flexible from 'amfe-flexible'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
-Vue.use(VueAwesomeSwiper);
+Vue.use(VueAwesomeSwiper)
 // 初始化样式
 import './assets/styles/reset.css'
 import './assets/styles/base.less'
 
 // 全局组件
 import BaseIcon from './components/icon/BaseIcon.vue'
+import BaseGallery from './components/gallery/Gallery'
+Vue.prototype.$bus = new Vue()
 
-Vue.prototype.$bus = new Vue();
+//全局组件注册
+Vue.component('base-icon', BaseIcon)
+Vue.component('base-gallery',BaseGallery);
 
-Vue.component('BaseIcon', BaseIcon);
-Vue.config.productionTip = false;
+//是否进行生产环境提示
+Vue.config.productionTip = false
+
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app');
+}).$mount('#app')
 

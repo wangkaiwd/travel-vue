@@ -31,6 +31,13 @@
 
 由于`Sass`和`less`之类的预处理器无法正确解析`>>>`,使用`/deep/`操作符来代替`>>>`，作为`>>>`的一个别名来使用。
 
+### 三：`router-link`的`tag`属性
+![router-link-tag](./shotScreen/router-link-tag.png)  
+通过`tag`属性，可以将`router-link`渲染成我们想要使用的`html`标签。否则由于`router-link`的`tag`属性默认为 "a",会有自带属性，从而破坏页面的布局  
+
+这里是将`router-link`渲染成一个`li`标签的实际应用
+![router-link-myuse](./shotScreen/router-link-myuse.png)
+
 ### 三：`min-width`和`flex`结合使用
 ![热销推荐](./shotScreen/hotSales.png)  
 在详情页面的热销推荐模块，通过`flex`布局实现左侧图片定宽，右侧文字介绍内容自适应。但是当左侧文字内容没有超出时正常显示，超出时会出现如下情况  

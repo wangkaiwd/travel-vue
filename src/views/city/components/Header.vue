@@ -1,12 +1,12 @@
 <template>
   <div class="city-header" ref="cityHeader">
     <div class="city-header-top">
-      <BaseIcon
+      <base-icon
         class="city-back"
         iconText="icon-fanhui"
         @click.native="$router.go(-1)"
       >
-      </BaseIcon>
+      </base-icon>
       <h2>城市选择</h2>
     </div>
     <div class="city-header-input">
@@ -30,48 +30,49 @@
 
 <script>
   import BScroll from 'better-scroll'
-  import {mapMutations} from 'vuex';
+  import { mapMutations } from 'vuex'
+
   export default {
-    name: "CityHeader",
+    name: 'CityHeader',
     props: {
       cities: {
         type: Object,
         require: true,
       }
     },
-    data() {
+    data () {
       return {
         keywords: '',
         list: []
       }
     },
-    mounted() {
-      this.$bus.$emit("cityHeaderHeight", this.$refs.cityHeader.clientHeight);
-      this.scroll = new BScroll(this.$refs.wrapper);
+    mounted () {
+      this.$bus.$emit('cityHeaderHeight', this.$refs.cityHeader.clientHeight)
+      this.scroll = new BScroll(this.$refs.wrapper)
     },
     computed: {
-      noMatch() {
-        return !this.list.length;
+      noMatch () {
+        return !this.list.length
       }
     },
     methods: {
-      handleCityClick(city) {
-        this.changeCity(city);
-        this.$router.push('/home');
+      handleCityClick (city) {
+        this.changeCity(city)
+        this.$router.push('/home')
       },
       ...mapMutations(['changeCity'])
     },
     watch: {
-      keywords(val) {
-        this.list = [];
-        clearInterval(this.timer);
+      keywords (val) {
+        this.list = []
+        clearInterval(this.timer)
         this.timer = setTimeout(() => {
           for (let k in this.cities) {
             if (this.cities.hasOwnProperty(k)) {
               this.cities[k].map(item => {
-                const bool = item.spell.indexOf(val) > -1 || item.name.indexOf(val) > -1;
+                const bool = item.spell.indexOf(val) > -1 || item.name.indexOf(val) > -1
                 if (bool) {
-                  this.list.push(item);
+                  this.list.push(item)
                 }
               })
             }
@@ -79,7 +80,7 @@
         }, 100)
       }
     }
-  };
+  }
 </script>
 
 <style lang="less" scoped>

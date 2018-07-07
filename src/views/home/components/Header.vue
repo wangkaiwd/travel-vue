@@ -4,14 +4,14 @@
     </div>
     <div class="header-input">
       <input placeholder="输入城市/景点/游玩主题" type="text">
-      <BaseIcon
+      <base-icon
         class="header-icon-search"
         iconText="icon-sousuo">
-      </BaseIcon>
+      </base-icon>
     </div>
     <div class="header-right" @click="$router.push('/city')">
       {{city}}
-      <BaseIcon iconText="icon-jiantou"></BaseIcon>
+      <base-icon iconText="icon-jiantou"></base-icon>
     </div>
   </div>
 </template>
