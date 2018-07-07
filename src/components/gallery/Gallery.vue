@@ -57,7 +57,6 @@
     align-items: center;
     .container {
       width: 100%;
-      height: calc(375rem / 37.5);
       .swiper-container {height: 100%;width: 100%;overflow: initial;}
       img {height: 100%;width: 100%;}
     }

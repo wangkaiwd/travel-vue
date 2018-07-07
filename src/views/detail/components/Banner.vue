@@ -1,9 +1,9 @@
 <template>
   <div class="detail-banner">
     <div class="banner-content" @click="isShowGallery=true">
-      <div class="banner-back">
+      <router-link tag="div" to="/" class="banner-back">
         <base-icon icon-text="icon-4"></base-icon>
-      </div>
+      </router-link>
       <img src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"
            alt="">
       <div class="banner-footer">
@@ -31,7 +31,7 @@
         swiperList: [
           {
             id: 1,
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg'
+            imgUrl: 'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg'
           },
           {
             id: 2,

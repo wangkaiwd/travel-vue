@@ -38,14 +38,14 @@
 这里是将`router-link`渲染成一个`li`标签的实际应用
 ![router-link-myuse](./shotScreen/router-link-myuse.png)
 
-### 三：`min-width`和`flex`结合使用
+### 四：`min-width`和`flex`结合使用
 ![热销推荐](./shotScreen/hotSales.png)  
 在详情页面的热销推荐模块，通过`flex`布局实现左侧图片定宽，右侧文字介绍内容自适应。但是当左侧文字内容没有超出时正常显示，超出时会出现如下情况  
 ![error](./shotScreen/min-max.png)  
 这里为左侧盒子设置属性：`min-width:0`完美解决。  
 ![正常显示](./shotScreen/normal.png)
 
-### 四：定位`top=0;bottom=0;`的小技巧
+### 五：定位`top=0;bottom=0;`的小技巧
 通过定位元素(`absolute,fixed`)的`top`和`bottom`属性，可以很好的实现一些比较复杂的页面布局。这里以城市页面布局为例  
 ![布局](./shotScreen/webLayout.png)  
 ```css
@@ -71,7 +71,7 @@
 ```
 通过top和bottom将外部盒子占满整个城市列表区域，使用`align-items:center`属性将盒子内的字母`li`垂直居中显示  
 ![字母表](./shotScreen/letter.png)  
-### 五：城市页面功能实现
+### 六：城市页面功能实现
 #### 1.屏幕滑动到对应字母开头的城市列表，右侧字母表激活
 知识点：
 * `Element.clientHeight`:
@@ -172,7 +172,12 @@ touchend() {
 }
 ```
 
-### 六：性能优化
+### 七: `Vue`组件`name`属性的作用
+1. 组件递归调用
+2. 在`keep-alive`中通过`name`取消缓存
+3. 在`vue`的调试工具中能很好的显示组件的名字
+4. 在代码出错的时候，更容易定位到错误位置
+### 性能优化
 1. 减少`DOM`操作  
    在进行DOM操作时，提前将要操作的节点对象赋值到变量，避免进行频繁的选择DOM元素
 2. 函数防抖：对于一些频繁触发的事件(resize,scroll),一定在事件触发n秒后才执行
