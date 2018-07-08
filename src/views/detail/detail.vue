@@ -3,6 +3,7 @@
     <detail-banner
       :gallaryImgs="gallaryImgs"
       :sightName="sightName"
+      :bannerImg="bannerImg"
     >
     </detail-banner>
     <detail-list 
@@ -29,7 +30,8 @@ export default {
     return {
       detailList: [],
       gallaryImgs: [],
-      sightName: ""
+      sightName: "",
+      bannerImg: ""
     };
   },
   mounted() {
@@ -37,6 +39,7 @@ export default {
       this.detailList = res.data.categoryList;
       this.gallaryImgs = res.data.gallaryImgs;
       this.sightName = res.data.sightName;
+      this.bannerImg = res.data.bannerImg;
     });
   }
 };

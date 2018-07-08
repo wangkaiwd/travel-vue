@@ -19,12 +19,12 @@ import './assets/styles/base.less'
 
 // 全局组件
 import BaseIcon from './components/icon/BaseIcon.vue'
-import BaseGallery from './components/gallery/Gallery'
+import BaseGallary from './components/gallary/Gallary'
 Vue.prototype.$bus = new Vue()
 
 //全局组件注册
 Vue.component('base-icon', BaseIcon)
-Vue.component('base-gallery',BaseGallery);
+Vue.component('base-gallary', BaseGallary);
 
 //是否进行生产环境提示
 Vue.config.productionTip = false
@@ -34,4 +34,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-

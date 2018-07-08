@@ -1,10 +1,10 @@
 <template>
   <div class="detail-banner">
-    <div class="banner-content" @click="isShowGallery=true">
+    <div class="banner-content" @click="isShowGallary=true">
       <router-link tag="div" to="/" class="banner-back">
         <base-icon icon-text="icon-4"></base-icon>
       </router-link>
-      <img :src="gallaryImgs[0]"
+      <img :src="bannerImg"
            alt="">
       <div class="banner-footer">
         <span class="banner-title">{{sightName}}</span>
@@ -14,12 +14,12 @@
         </span>
       </div>
     </div>
-    <base-gallery
+    <base-gallary
       :swiper="gallaryImgs"
-      v-show="isShowGallery"
+      v-show="isShowGallary"
       @change="onChange"
     >
-    </base-gallery>
+    </base-gallary>
   </div>
 </template>
 <script>
@@ -33,16 +33,20 @@ export default {
     sightName: {
       type: String,
       required: true
+    },
+    bannerImg: {
+      type: String,
+      required: true
     }
   },
   data() {
     return {
-      isShowGallery: false
+      isShowGallary: false
     };
   },
   methods: {
     onChange() {
-      this.isShowGallery = false;
+      this.isShowGallary = false;
     }
   }
 };
@@ -53,6 +57,10 @@ export default {
   width: 100%;
   height: 5.5rem;
   img {
+    width: 100%;
+    height: 100%;
+  }
+  .banner-content {
     width: 100%;
     height: 100%;
   }
