@@ -1,5 +1,6 @@
 <template>
   <div class="detail">
+    <detail-header></detail-header>
     <detail-banner
       :gallaryImgs="gallaryImgs"
       :sightName="sightName"
@@ -22,8 +23,8 @@ import { fetchDetail } from "@/api/home";
 export default {
   name: "Detail",
   components: {
-    DetailBanner,
     DetailHeader,
+    DetailBanner,
     DetailList
   },
   data() {
@@ -45,4 +46,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.detail {
+  height: 1000px;
+}
 </style>

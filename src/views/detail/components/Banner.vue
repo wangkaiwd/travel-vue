@@ -10,7 +10,7 @@
         <span class="banner-title">{{sightName}}</span>
         <span class="picture-num">
           <base-icon class="icon-img" icon-text="icon-tupian"></base-icon>
-          2
+          {{gallaryImgs.length}}
         </span>
       </div>
     </div>
