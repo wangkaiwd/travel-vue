@@ -7,9 +7,9 @@
         :ref="item"
         @click="handleClick(item)"
         :class="{active: i===activeIndex}"
-        @touchstart="touchstart"
-        @touchmove="touchmove"
-        @touchend="touchend"
+        @touchstart.prevent="touchstart"
+        @touchmove.prevent="touchmove"
+        @touchend.prevent="touchend"
       >
         {{item}}
       </li>

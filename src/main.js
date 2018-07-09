@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
+import 'babel-polyfill'
 import fastClick from 'fastclick'
 // 移动端300毫秒的延迟
 fastClick.attach(document.body)

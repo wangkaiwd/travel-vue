@@ -1,7 +1,7 @@
 <template>
   <!-- ref属性统一使用驼峰命名法 -->
   <div class="detail-banner" ref="detailBanner">
-    <div class="banner-content" @click="isShowGallary=true">
+    <div class="banner-content" @click.prevent="isShowGallary=true">
       <router-link tag="div" to="/" class="banner-back">
         <base-icon 
           :style="{opacity:bannerIconOpactiy}" 
