@@ -13,4 +13,5 @@ try {
 
 export default {
   city: defaultCity,
+  globalLoading: false,
 }

@@ -2,7 +2,7 @@ import storage from '@/utils/storage';
 
 const changeCity = (state, city) => {
   state.city = city;
-  const {setItem} = storage;
+  const { setItem } = storage;
   try {
     setItem('city', city);
   } catch (e) {
@@ -10,6 +10,11 @@ const changeCity = (state, city) => {
   }
 };
 
+const isShowGlobalLoading = (state, bool) => {
+  state.globalLoading = bool;
+}
+
 export default {
   changeCity,
+  isShowGlobalLoading,
 }

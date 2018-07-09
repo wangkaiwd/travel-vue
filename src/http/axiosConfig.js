@@ -1,5 +1,8 @@
+
+import store from '@/store'
 import Axios from 'axios'
 import HTTP from './httpConfig'
+
 const axiosInstance = Axios.create({
   baseURL: `${HTTP.HTTP_SERVER}${HTTP.HTTP_PREFIX}`,
   timeout: 8000,
@@ -9,7 +12,10 @@ const axiosInstance = Axios.create({
 
 // 添加请求拦截器
 axiosInstance.interceptors.request.use((config) => {
-  // 在发送请求之前做些什么
+  store.commit('isShowGlobalLoading', true);
+  if (config.method.toLowerCase() === 'post') {
+    config.headers = { "Content-Type": "application/x-www-from-urlencoded" }
+  }
   return config;
 },
   (error) => {
@@ -19,6 +25,7 @@ axiosInstance.interceptors.request.use((config) => {
 
 // 添加响应拦截器
 axiosInstance.interceptors.response.use((response) => {
+  store.commit('isShowGlobalLoading', false)
   // 对响应数据做点什么
   return response.data;
 },

@@ -1,5 +1,5 @@
 <template>
-  <div class="base-loading">
+  <div class="base-loading" v-show="globalLoading">
     <div class="wrap">
       <div class="spinner">
         <div class="double-bounce1"></div>
@@ -11,11 +11,17 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  name: "BaseLoading",
+  computed: {
+    ...mapState(["globalLoading"])
+  }
+};
 </script>
 
 <style lang="less" scoped>
-@import "~styles/variables.less";
+@import "~styles/varibles.less";
 .wrap {
   width: 100vw;
   height: 100vh;

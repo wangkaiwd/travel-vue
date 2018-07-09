@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <base-loading></base-loading>
   </div>
 </template>
 <script>
-// TODO:如何区分是到一个新页面还是回退，来执行响应的动画
+import BaseLoading from "@/components/loading";
 export default {
+  name: "App",
+  components: {
+    BaseLoading
+  },
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {}
 };
 </script>
 <style lang="less" scoped>
