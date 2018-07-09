@@ -3,7 +3,11 @@
   <div class="detail-banner" ref="detailBanner">
     <div class="banner-content" @click="isShowGallary=true">
       <router-link tag="div" to="/" class="banner-back">
-        <base-icon icon-text="icon-4"></base-icon>
+        <base-icon 
+          :style="{opacity:bannerIconOpactiy}" 
+          icon-text="icon-4"
+        >
+        </base-icon>
       </router-link>
       <img :src="bannerImg"
            alt="">
@@ -42,11 +46,13 @@ export default {
   },
   data() {
     return {
-      isShowGallary: false
+      isShowGallary: false,
+      bannerIconOpactiy: 1
     };
   },
   mounted() {
     this.getBannerHeight();
+    this.getBackIconOpacity();
   },
   methods: {
     onChange() {
@@ -55,6 +61,11 @@ export default {
     getBannerHeight() {
       const height = this.$refs.detailBanner.clientHeight / 2;
       this.$bus.$emit("getBannerHeight", height);
+    },
+    getBackIconOpacity() {
+      this.$bus.$on("bannerIconOpactiy", data => {
+        this.bannerIconOpactiy = data;
+      });
     }
   }
 };

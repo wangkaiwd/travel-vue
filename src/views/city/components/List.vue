@@ -108,14 +108,12 @@ export default {
         for (let i = 0; i < this.calculateHeight.length; i++) {
           // 这里只是进行估值计算，否则可能导致页面滚动和右侧字母激活不一致
           if (y < Math.floor(this.calculateHeight[i] - 3)) {
-            console.log("i", i);
             this.$emit("letterScroll", i - 2);
             return;
           } else if (
             y >
             this.calculateHeight[this.calculateHeight.length - 1] - 3
           ) {
-            console.log("i-else", i);
             this.$emit("letterScroll", i - 1);
           }
         }

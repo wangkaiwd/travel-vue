@@ -1,6 +1,11 @@
 <template>
-  <div class="detail-header" :style="{opacity:opacity}">
-    <base-icon class="detail-header-icon" icon-text="icon-4"></base-icon>
+  <div class="detail-header" v-show="opacity" :style="{opacity:opacity}">
+    <base-icon 
+      class="detail-header-icon" 
+      icon-text="icon-4"
+      @click.native="$router.go(-1)"
+    >
+    </base-icon>
     景点详情
   </div>
 </template>
@@ -16,9 +21,12 @@ export default {
   methods: {
     onScroll() {
       let top = document.documentElement.scrollTop;
+      let backIconOpactiy = 1;
       const height = this.detailBannerHeight;
       if (top < height) {
         this.opacity = top / height;
+        backIconOpactiy = (height - top) / height;
+        this.$bus.$emit("bannerIconOpactiy", backIconOpactiy);
       }
     },
     getBannerHeight() {
