@@ -19,12 +19,14 @@
         </span>
       </div>
     </div>
-    <base-gallary
-      :swiper="gallaryImgs"
-      v-show="isShowGallary"
-      @change="onChange"
-    >
-    </base-gallary>
+    <base-fade-animation>
+      <base-gallary
+        :swiper="gallaryImgs"
+        v-show="isShowGallary"
+        @change="onChange"
+      >
+      </base-gallary>
+    </base-fade-animation>
   </div>
 </template>
 <script>

@@ -38,9 +38,7 @@ export default {
   },
   methods: {
     hiddenGallary(e) {
-      if (e.target.className === "Gallary") {
-        this.$emit("change");
-      }
+      this.$emit("change");
     }
   }
 };

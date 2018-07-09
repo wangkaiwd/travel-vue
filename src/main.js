@@ -20,11 +20,13 @@ import './assets/styles/base.less'
 // 全局组件
 import BaseIcon from './components/icon/BaseIcon.vue'
 import BaseGallary from './components/gallary/Gallary'
+import BaseFadeAnimation from './components/fadeAnimation/FadeAnimation.vue'
 Vue.prototype.$bus = new Vue()
 
 //全局组件注册
-Vue.component('base-icon', BaseIcon)
+Vue.component('base-icon', BaseIcon);
 Vue.component('base-gallary', BaseGallary);
+Vue.component('base-fade-animation', BaseFadeAnimation);
 
 //是否进行生产环境提示
 Vue.config.productionTip = false
