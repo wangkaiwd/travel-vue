@@ -9,15 +9,22 @@ export default {
   name: "DetailHeader",
   data() {
     return {
-      opacity: 0
+      opacity: 0,
+      detailBannerHeight: 0
     };
   },
   methods: {
     onScroll() {
       let top = document.documentElement.scrollTop;
-      if (top > 60 && top < 140) {
-        this.opacity = top / 140;
+      const height = this.detailBannerHeight;
+      if (top < height) {
+        this.opacity = top / height;
       }
+    },
+    getBannerHeight() {
+      this.$bus.$on("getBannerHeight", data => {
+        this.detailBannerHeight = data;
+      });
     }
   },
   mounted() {
@@ -28,6 +35,7 @@ export default {
      *  @param: listener: 监听函数。事件发生时会调用该监听函数
      *  @param: useCapture: 布尔市，表示监听函数是否在捕获阶段触发，默认为false(监听函数只在冒泡阶段触发)
      */
+    this.getBannerHeight();
     window.addEventListener("scroll", this.onScroll);
   },
   beforeDestroy() {

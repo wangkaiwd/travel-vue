@@ -1,5 +1,6 @@
 <template>
-  <div class="detail-banner">
+  <!-- ref属性统一使用驼峰命名法 -->
+  <div class="detail-banner" ref="detailBanner">
     <div class="banner-content" @click="isShowGallary=true">
       <router-link tag="div" to="/" class="banner-back">
         <base-icon icon-text="icon-4"></base-icon>
@@ -44,9 +45,16 @@ export default {
       isShowGallary: false
     };
   },
+  mounted() {
+    this.getBannerHeight();
+  },
   methods: {
     onChange() {
       this.isShowGallary = false;
+    },
+    getBannerHeight() {
+      const height = this.$refs.detailBanner.clientHeight / 2;
+      this.$bus.$emit("getBannerHeight", height);
     }
   }
 };
