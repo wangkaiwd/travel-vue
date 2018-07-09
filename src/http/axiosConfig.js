@@ -7,7 +7,6 @@ const axiosInstance = Axios.create({
   baseURL: `${HTTP.HTTP_SERVER}${HTTP.HTTP_PREFIX}`,
   timeout: 8000,
 })
-
 // TODO:请求超时的友好提示
 
 // 添加请求拦截器

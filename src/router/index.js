@@ -31,5 +31,9 @@ const routes = [
 ]
 
 export default new Router({
-  routes
+  routes,
+  // 每次都回到页面顶部
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
