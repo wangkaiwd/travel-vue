@@ -25,7 +25,7 @@ export default {
 .wrap {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 2vw;
   position: fixed;
   left: 0;
