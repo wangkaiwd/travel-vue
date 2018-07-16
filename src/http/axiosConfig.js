@@ -58,3 +58,14 @@ const ajaxFunction = (url, method = 'post') =>
 
 
 export default ajaxFunction;
+
+// 使用Promsie进行处理回到函数，防止回到地狱
+const promiseAjax = (url, method = 'post') =>
+  (data) =>
+    new Promise((resolve, reject) => {
+      axiosInstance({
+        method,
+        url,
+        data
+      }).then(res => resolve(res), err => reject(err))
+    })
