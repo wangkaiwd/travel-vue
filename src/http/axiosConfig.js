@@ -19,6 +19,7 @@ axiosInstance.interceptors.request.use((config) => {
 },
   (error) => {
     // 对请求错误做些什么
+    console.log('请求失败', error);
     return Promise.reject(error);
   });
 
@@ -30,6 +31,7 @@ axiosInstance.interceptors.response.use((response) => {
 },
   (error) => {
     // 对响应错误做点什么
+    console.log('响应失败', error);
     return Promise.reject(error);
   });
 

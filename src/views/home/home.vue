@@ -29,7 +29,7 @@ import HomeSales from "./components/HotSales.vue";
 import HomeWeek from "./components/Weekend.vue";
 
 // 请求接口
-import { fetchHome } from "@/api/home";
+import { fetchHome } from "@/api";
 export default {
   name: "Home",
   data() {

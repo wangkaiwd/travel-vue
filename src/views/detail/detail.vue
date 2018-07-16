@@ -18,7 +18,7 @@ import DetailBanner from "./components/Banner";
 import DetailHeader from "./components/Header";
 import DetailList from "./components/List";
 
-import { fetchDetail } from "@/api/home";
+import { fetchDetail } from "@/api";
 
 export default {
   name: "Detail",

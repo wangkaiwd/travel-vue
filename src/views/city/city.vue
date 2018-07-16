@@ -23,7 +23,7 @@ import CityList from "./components/List.vue";
 import CityLetter from "./components/Letter.vue";
 
 // 接口
-import { fetchCity } from "@/api/home";
+import { fetchCity } from "@/api";
 export default {
   name: "City",
   components: {
