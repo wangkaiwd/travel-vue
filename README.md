@@ -46,6 +46,9 @@
 ![正常显示](./shotScreen/normal.png)
 
 ### 五：定位`top=0;bottom=0;`的小技巧
+`mdn`有这样一段介绍：  
+> 当`top`和`bottom`同时指定时，并且`height`没有被指定或者指定为`auto`或`100%`的时候，`top`和`bottom`都会生效，在其它情况下，如果`heigth`被限制，则`top`属性会优先设置，`bottom`属性则会被忽略。
+
 通过定位元素(`absolute,fixed`)的`top`和`bottom`属性，可以很好的实现一些比较复杂的页面布局。这里以城市页面布局为例  
 ![布局](./shotScreen/webLayout.png)  
 ```css
@@ -160,7 +163,7 @@ touchmove(e) {
       const index = Math.floor(
         (touch.clientY - this.startHeight) / this.liHeight
       );
-      // 由于触摸停止的位置可以能不固定，所以touch.clientY可能会< "A"所在的位置，>"Z"所在的位置，导致index<0或者>=this.letterList.length
+      // 由于触摸停止的位置可能不固定，所以touch.clientY可能会< "A"所在的位置，>"Z"所在的位置，导致index<0或者>=this.letterList.length
       // 如果index < 0 或者 index >= this.letterList.length的话，this.letterList
       if (index >= 0 && index < this.letterList.length)
         this.$emit("letterPosition", this.letterList[index]);
@@ -175,8 +178,9 @@ touchend() {
 ### 七: `Vue`组件`name`属性的作用
 1. 组件递归调用
 2. 在`keep-alive`中通过`name`取消缓存
-3. 在`vue`的调试工具中能很好的显示组件的名字
-4. 在代码出错的时候，更容易定位到错误位置
+4. 可以通过`$options.name`来动态或取到组件名，进行一些相关操作
+5. 在`vue`的调试工具中能很好的显示组件的名字
+6. 在代码出错的时候，更容易定位到错误位置
 ### 性能优化
 1. 减少`DOM`操作  
    在进行DOM操作时，提前将要操作的节点对象赋值到变量，避免进行频繁的选择DOM元素
