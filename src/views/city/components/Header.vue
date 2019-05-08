@@ -29,8 +29,8 @@
 </template>
 
 <script>
-  import BScroll from 'better-scroll'
-  import { mapMutations } from 'vuex'
+  import BScroll from 'better-scroll';
+  import { mapMutations } from 'vuex';
 
   export default {
     name: 'CityHeader',
@@ -44,43 +44,43 @@
       return {
         keywords: '',
         list: []
-      }
+      };
     },
     mounted () {
-      this.$bus.$emit('cityHeaderHeight', this.$refs.cityHeader.clientHeight)
-      this.scroll = new BScroll(this.$refs.wrapper)
+      this.$bus.$emit('cityHeaderHeight', this.$refs.cityHeader.clientHeight);
+      this.scroll = new BScroll(this.$refs.wrapper);
     },
     computed: {
       noMatch () {
-        return !this.list.length
+        return !this.list.length;
       }
     },
     methods: {
       handleCityClick (city) {
-        this.changeCity(city)
-        this.$router.push('/home')
+        this.changeCity(city);
+        this.$router.push('/home');
       },
       ...mapMutations(['changeCity'])
     },
     watch: {
       keywords (val) {
-        this.list = []
-        clearInterval(this.timer)
+        this.list = [];
+        clearInterval(this.timer);
         this.timer = setTimeout(() => {
           for (let k in this.cities) {
             if (this.cities.hasOwnProperty(k)) {
               this.cities[k].map(item => {
-                const bool = item.spell.indexOf(val) > -1 || item.name.indexOf(val) > -1
+                const bool = item.spell.indexOf(val) > -1 || item.name.indexOf(val) > -1;
                 if (bool) {
-                  this.list.push(item)
+                  this.list.push(item);
                 }
-              })
+              });
             }
           }
-        }, 100)
+        }, 100);
       }
     }
-  }
+  };
 </script>
 
 <style lang="less" scoped>
@@ -115,10 +115,9 @@
         border: 0;
         outline: none;
         border-radius: 0.1067rem;
-        text-align: center;
         font-size: 12px;
         // 为输入框留一些俩边的间隙，比较美观
-        padding: 0 0.1067rem;
+        padding: 0 0.3067rem;
       }
     }
     .city-content {
